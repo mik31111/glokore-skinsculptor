@@ -762,6 +762,59 @@
     .footer-adv-btn { background: none; border: none; padding: 0; cursor: pointer; color: #999; font: inherit; font-size: 11px; text-decoration: underline; }
 
     /* ===========================================
+       DESKTOP LAYOUT — product cards 3-column
+    =========================================== */
+    @media (min-width: 681px) {
+      /* Card body becomes a 3-column grid: image | pros+cons | score */
+      .card-body {
+        display: grid;
+        grid-template-columns: 148px 1fr 175px;
+        grid-template-rows: 1fr;
+        align-items: stretch;
+      }
+      /* Dissolve card-top-row so its children participate in the grid */
+      .card-top-row {
+        display: contents;
+      }
+      .card-img-col {
+        grid-column: 1;
+        grid-row: 1;
+        padding: 20px 14px;
+        border-right: 1px solid #f0f0f0;
+        justify-content: center;
+      }
+      .card-img-col img {
+        max-width: 120px;
+        height: 130px;
+      }
+      .score-col {
+        grid-column: 3;
+        grid-row: 1;
+        width: auto;
+        padding: 20px 14px;
+        border-left: 1px solid #f0f0f0;
+        justify-content: center;
+      }
+      /* Pros/cons column in the middle */
+      .card-pc-row {
+        grid-column: 2;
+        grid-row: 1;
+        border-top: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .card-pc-row .card-pros-col {
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+        flex: 1;
+      }
+      .card-pc-row .card-cons-col {
+        flex: 1;
+      }
+    }
+
+    /* ===========================================
        MOBILE RESPONSIVE
     =========================================== */
     @media (max-width: 680px) {
